@@ -9,8 +9,6 @@ import re
 from collections import defaultdict
 import pyodbc
 #from bingpy import WebSearch
-import tweepy
-import gspread
 import gspread
 import logging
 import timeit
@@ -33,7 +31,6 @@ wks.update_acell('B5', 'Will populate when process is finished')
 wks.update_acell('B6', 'Will populate when process is finished')
 wks.update_acell('B7', 'Will populate when process is finished')
 wks.update_acell('B8', 'Will populate when process is finished')
-
 wks.update_acell('D2', '')
 wks.update_acell('E2', '')
 
@@ -49,7 +46,7 @@ counter = "2000" #twitter max 2000
 ### GET TOTAL NUMBER OF FACEBOOK ON THE SYSTEM BEFORE THE PROCESS BEGAN
 
 database_details = 'DRIVER={SQL Server};SERVER=ENTER SERVER NAME;DATABASE=ENTER DATABASE NAME;UID=ENTER USER ID;PWD=ENTER PASSWORD'
-table_name = 'BRPMEN_AddressBookSocialProfiles'
+table_name = 'ENTER TABLE NAME'
 cnxn = pyodbc.connect(database_details)
 cursor = cnxn.cursor()
 cursor.execute("SELECT matchkey FROM "+table_name+ " ORDER BY matchkey DESC")
@@ -353,7 +350,6 @@ with open('discovery_log.txt', 'w') as success_message:
     print "Script finished. Refer to discovery_log.txt for top line stats"
 success_message.close()
 
-scope = ['https://spreadsheets.google.com/feeds']
 wks.update_acell('A2', 'Script finished!')
 wks.update_acell('B3', str_logging_time)
 wks.update_acell('B4', str_time_end)
