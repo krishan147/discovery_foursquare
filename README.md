@@ -1,2 +1,2 @@
 # discovery_foursquare
-Find handles from Foursquare using geo search
+Gets handles from Foursquare using geo search
